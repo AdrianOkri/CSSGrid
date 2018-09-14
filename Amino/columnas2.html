@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Columnas</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .container {
+            display: grid;
+            grid-template: [rowStart] 1fr [rowMiddle] 1fr [rowEnd] / [_start] 1fr [line1] 1fr [line2] 1fr [line3] 1fr [line4] 1fr [line5] 1fr [_end];
+            grid-gap: 20px;
+        }
+        .item {
+            background: black;
+            color: white;
+            padding: 10px;
+            border: 1px solid white;
+        }
+        .item:nth-child(2n) {
+            background: #1abc9c;
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+        .item:nth-of-type(5) {
+            background: #900C3F;
+            display: grid;
+            grid-template: 50% 50% / 50% 50%;
+            grid-row: rowMiddle / rowEnd;
+        }
+
+        .item:nth-of-type(4) {
+            grid-row: rowMiddle / rowEnd;
+        }
+
+        .item:nth-of-type(1) {
+            grid-column-start: _start;
+            grid-column-end: line2;
+            grid-row-start: rowStart;
+            grid-row-end: rowEnd;
+        }
+        .item:nth-of-type(6) {
+            grid-column: line4 / _end;
+            grid-row: rowStart / rowEnd;
+        }
+        .item .item {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+            <div class="item">Contenido1</div>
+            <div class="item">
+                    <div class="item">subitem #1</div>
+                    <div class="item">subitem #2</div>
+            </div>
+            <div class="item">contenido #3</div>
+            <div class="item">
+                <div class="item">subitem #1</div>
+                <div class="item">subitem #2</div>
+            </div>
+            <div class="item">
+                <div class="item">subitem #1</div>
+                <div class="item">subitem #2</div>
+                <div class="item">subitem #3</div>
+                <div class="item">subitem #4</div>
+            </div>
+            <div class="item">
+                <div class="item">subitem #1</div>
+                <div class="item">subitem #2</div>
+            </div>
+        </div>
+</body>
+</html>
